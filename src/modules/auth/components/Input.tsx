@@ -41,16 +41,41 @@ export function LockIcon() {
 export interface InputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, "className"> {
   /** Ícone exibido à direita do campo (ex.: EnvelopeIcon, LockIcon) */
   rightIcon?: ReactNode;
+  label: string;
 }
 
-export function Input({ rightIcon, ...inputProps }: InputProps) {
+export function Input({label, rightIcon, ...inputProps }: InputProps) {
   return (
-    <div className="flex items-center gap-3 rounded-xl border border-gray-700/80 bg-[#242424] px-4 py-3 focus-within:border-gray-500">
-      <input
-        {...inputProps}
-        className="min-w-0 flex-1 bg-transparent text-white placeholder:text-[#AAAAAA] focus:outline-none"
-      />
-      {rightIcon ? <span className="flex-shrink-0">{rightIcon}</span> : null}
-    </div>
+<label className="block w-full cursor-text">
+      
+      {/* Contêiner principal: Flex em linha (Row), com fundo e borda */}
+      <div className="flex items-center justify-between gap-3 border border-gray-700/80 bg-[#242424] px-4 py-2 focus-within:border-gray-500 transition-colors">
+        
+        {/* Lado Esquerdo: Flex em coluna (Col) ocupando o máximo de espaço (flex-1) */}
+        <div className="flex flex-col flex-1 min-w-0">
+          
+          {/* Label no topo */}
+          {label && (
+            <span className="text-xs font-semibold text-gray-300 mb-0.5 select-none">
+              {label}
+            </span>
+          )}
+          
+          {/* Input logo abaixo da label */}
+          <input
+            {...inputProps}
+            className="w-full bg-transparent text-white focus:outline-none"
+          />
+        </div>
+
+        {/* Lado Direito: Ícone fixo */}
+        {rightIcon && (
+          <span className="flex-shrink-0 text-white flex items-center justify-center">
+            {rightIcon}
+          </span>
+        )}
+        
+      </div>
+    </label>
   );
 }

@@ -44,6 +44,8 @@ export function AuthProvider({ children }: AuthProviderProps) {
 
     try {
       const result = await authApi.login(payload);
+      console.log(result);
+      
 
       setToken(result.token);
       setUser(result.user);

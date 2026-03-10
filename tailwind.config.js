@@ -5,7 +5,11 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}", // <--- Esta linha é a mais importante
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        sans: ['Titillium Web', 'sans-serif'],
+      },
   },
+},
   plugins: [],
 }
