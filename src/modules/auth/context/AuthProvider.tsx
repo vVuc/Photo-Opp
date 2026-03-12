@@ -1,7 +1,7 @@
 import { useEffect, useCallback, useMemo, useState, type ReactNode } from "react";
 import { useNavigate } from "react-router-dom";
 
-import * as authApi from "../services/authApi";
+import {authService} from "../services/authService";
 import type { AuthUser, LoginPayload } from "../types/authTypes";
 import { AuthContext } from "./AuthContext";
 
@@ -43,7 +43,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
     setError(null);
 
     try {
-      const result = await authApi.login(payload);
+      const result = await authService.login(payload);
       console.log(result);
       
 
