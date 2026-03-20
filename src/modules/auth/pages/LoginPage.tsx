@@ -20,15 +20,12 @@ export function LoginPage() {
   return (
     <main className="flex flex-col bg-gradient-to-br from-white from-[40%] to-[#999999] min-h-screen px-6 py-8">
 
-      {/* 2. Bloco Superior que cresce para ocupar o espaço disponível */}
       <div className="flex-col flex flex-1 w-full max-w-md mx-auto">
 
-        {/* Espaço reservado para a Imagem da Empresa */}
         <div className="flex justify-center ">
-          <img className="pt-[8vh] w-[24%] max-w-[255px] min-w-[120px] object-contain" src={logo} alt="NEX.lab" />
+          <img className="pt-[8vh] w-[24%] max-w-[255px] min-w-[120px] object-contain mb-12" src={logo} alt="NEX.lab" />
         </div>
 
-        {/* 3. Título centralizado e com escala maior */}
         <h1 className="text-4xl font-semibold text-center text-black mb-10">
           Login
         </h1>

@@ -37,5 +37,17 @@ export const realAuthService: IAuthService = {
     });
 
     await handleResponse<void>(response);
+  },
+
+  async validateEmailRecovery(token: string, newPassword?: string): Promise<void> {
+    const response = await fetch(`${API_BASE_URL}/auth/reset-password`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ token, newPassword }),
+    });
+
+    await handleResponse<void>(response);
   }
 };

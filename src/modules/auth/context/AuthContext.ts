@@ -9,9 +9,9 @@ export interface AuthContextValue {
   error: string | null;
   login: (payload: LoginPayload) => Promise<void>;
   logout: () => void;
+  validateEmailRecovery: (token: string, newPassword?: string) => Promise<void>;
 }
 
 export const AuthContext = createContext<AuthContextValue | undefined>(
   undefined,
 );
-
