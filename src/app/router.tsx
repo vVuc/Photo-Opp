@@ -1,6 +1,7 @@
 import type { ReactElement } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
-import { LoginPage, ForgotPasswordPage, LoadingPage, useAuth } from "@/modules/auth";
+import { LoginPage, ForgotPasswordPage, useAuth } from "@/modules/auth";
+import { HomePage } from "@/modules/photos";
 import { DashboardPage } from "@/modules/dashboard";
 import { PhotoGalleryPage } from "@/modules/photos";
 
@@ -17,9 +18,9 @@ function PrivateRoute({ children }: { children: ReactElement }) {
 export function AppRouter() {
   return (
     <Routes>
-      <Route path="/" element={<LoginPage />} />
+      <Route path="/login" element={<LoginPage />} />
       <Route path="/forgot-password" element={<ForgotPasswordPage />} />
-      <Route path="/auth/loading" element={<LoadingPage />} />
+      <Route path="/" element={<PrivateRoute><HomePage /></PrivateRoute>} />
 
       <Route
         path="/dashboard"

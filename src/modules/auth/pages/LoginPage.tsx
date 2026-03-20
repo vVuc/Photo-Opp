@@ -2,7 +2,7 @@ import { useState, type FormEvent } from "react";
 import { Link } from "react-router-dom";
 
 import { Button } from "@/shared/components";
-import logo from '@/shared/assets/nexlab.svg';
+import logo from '@/shared/assets/NEXlab.svg';
 import { Input, EnvelopeIcon, LockIcon, Checkbox } from "../components";
 import { useAuth } from "../hooks/useAuth";
 
@@ -20,20 +20,18 @@ export function LoginPage() {
   return (
     <main className="flex flex-col bg-gradient-to-br from-white from-[40%] to-[#999999] min-h-screen px-6 py-8">
 
-      {/* 2. Bloco Superior que cresce para ocupar o espaço disponível */}
       <div className="flex-col flex flex-1 w-full max-w-md mx-auto">
 
-        {/* Espaço reservado para a Imagem da Empresa */}
-        <div className="flex justify-center mt-10 mb-12">
-          <img src={logo} alt="NEX.lab" />
+        <div className="flex justify-center ">
+          <img className="pt-[8vh] w-[24%] max-w-[255px] min-w-[120px] object-contain mb-12" src={logo} alt="NEX.lab" />
         </div>
 
-        {/* 3. Título centralizado e com escala maior */}
         <h1 className="text-4xl font-semibold text-center text-black mb-10">
           Login
         </h1>
 
         <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+          {error ? <p className="text-red-500 text-sm text-center">{error}</p> : null}
           <Input
             label="Email"
             type="email"
@@ -42,8 +40,6 @@ export function LoginPage() {
             onChange={(event) => setEmail(event.target.value)}
             rightIcon={<EnvelopeIcon />}
             required
-          // Exemplo de injeção de estilo escuro se o componente suportar via className
-          // className="bg-[#242424] text-white pt-6 pb-2 border-none" 
           />
 
           <Input
@@ -54,7 +50,6 @@ export function LoginPage() {
             onChange={(event) => setPassword(event.target.value)}
             rightIcon={<LockIcon />}
             required
-          // className="bg-[#242424] text-white pt-6 pb-2 border-none"
           />
 
           <div className="flex items-center justify-between mt-2 mb-8">
@@ -72,7 +67,6 @@ export function LoginPage() {
             </Link>
           </div>
 
-          {error ? <p className="text-red-500 text-sm">{error}</p> : null}
         </form>
       </div>
 
